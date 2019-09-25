@@ -54,19 +54,26 @@ public class SMCalculator extends Object {
 
 	public void calculateScore() {
 
+		boolean won = false;
 		if (positionFirst == 4 && positionSecond == positionThird) {
 			setWinAmmount(75);
+			won = true;
 		}
 		if (positionSecond == 4 && positionFirst == positionThird) {
 			setWinAmmount(75);
+			won = true;
 		}
 		if (positionThird == 4 && positionSecond == positionFirst) {
 			setWinAmmount(75);
+			won = true;
 		}
 
 		if (positionFirst == positionSecond && positionFirst == positionThird) {
 			setWinAmmount(100);
-		} else {
+			won = true;
+		}
+
+		if(!won) {
 			textViewInfo.setText(res.getString(R.string.lose));
 		}
 	}
